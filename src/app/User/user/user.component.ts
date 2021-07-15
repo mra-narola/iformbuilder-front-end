@@ -37,15 +37,12 @@ export class UserComponent implements OnInit {
         },
       ],
     };
-    console.log('requestPayload =>', requestPayload);
 
     this.service.createUser(requestPayload).subscribe(
       (res: any) => {
-        console.log(res);
         this.router.navigate(['/']);
       },
       (err) => {
-        console.log(err);
       }
     );
   }

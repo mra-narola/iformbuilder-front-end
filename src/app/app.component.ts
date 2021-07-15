@@ -17,7 +17,6 @@ export class AppComponent {
     private router: Router,
   ) {
     this.location.onUrlChange(x => this.currentLocation = x);
-    console.log(this.currentLocation != '/');
     if (!this.token) {
       this.router.navigate(['/']);
       this.redirecturl = '/'
