@@ -1,0 +1,96 @@
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 border-primary">
+          <div class="card-body">
+            <h3 class="card-title text-primary p-xl-1">New User</h3>
+            <div class="form-signin">
+              <form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate>
+                <div
+                  class="form-group mt-2 mb-2"
+                  [class.has-error]="first_name.invalid"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    ngModel
+                    #first_name="ngModel"
+                    id="first_name"
+                    name="first_name"
+                    placeholder="First Name"
+                    required
+                  />
+                  <span
+                    class="has-error"
+                    *ngIf="first_name.errors?.required && first_name.touched"
+                  >
+                    First Name is Required
+                  </span>
+                </div>
+                <div
+                  class="form-group mt-2 mb-2"
+                  [class.has-error]="last_name.invalid"
+                >
+                  <input
+                  type="text"
+                  class="form-control"
+                  ngModel
+                  #last_name="ngModel"
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Last Name"
+                  required
+                />
+                  <span
+                  class="has-error"
+                  *ngIf="last_name.errors?.required && last_name.touched"
+                >
+                  Last Name is Required
+                </span>
+                </div>
+                
+                <div
+                  class="form-group mt-2 mb-2"
+                  [class.has-error]="phone.invalid"
+                >
+                  <input
+                    type="number"
+                    class="form-control"
+                    ngModel
+                    #phone="ngModel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone"
+                    required
+                  />
+                  <span
+                    class="has-error"
+                    *ngIf="phone.errors?.required && phone.touched"
+                  >
+                    Phone is Required
+                  </span>
+                </div>
+                <div class="form-group mt-2 mb-2">
+                  <button
+                    type="submit"
+                    class="btn btn-success btn-block me-2"
+                    [disabled]="f.invalid"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    class="btn btn-danger btn-block"
+                    (click)="onBack()"
+                  >
+                    Back
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
